@@ -11,16 +11,47 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
     </properties>
-         
-    <plugin>
+    
+ <build>
+    <plugins>
+	  <!-- SUREFIRE (compatible with JUnit 5+, Java 9+, Lombok) -->
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.19.1</version>
+        <version>${maven-surefire-plugin.version}</version>
         <configuration>
-            <skipTests>false</skipTests>
+             <skipTests>false</skipTests>
         </configuration>
-    </plugin>
+      </plugin>
+
+      <!-- CHECKSTYLE -->
+      <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-checkstyle-plugin</artifactId>
+       <version>${maven-checkstyle-plugin.version}</version>
+       <configuration>
+         <configLocation>checkstyle.xml</configLocation>
+         <encoding>UTF-8</encoding>
+         <consoleOutput>true</consoleOutput>
+         <failsOnError>true</failsOnError>
+         <linkXRef>false</linkXRef>
+       </configuration>
+       <executions>
+         <execution>
+           <id>validate</id>
+           <phase>validate</phase>
+           <goals>
+             <goal>check</goal>
+           </goals>
+         </execution>
+       </executions>
+      </plugin>
+
+    </plugins>
+</build>
 
     <dependencies>
         <dependency>
