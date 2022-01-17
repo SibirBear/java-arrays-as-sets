@@ -1,11 +1,8 @@
-package test;
-
-import main.arraysAsSets;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static main.arraysAsSets.*;
-
+import sibirbear.arraysAsSets;
+import static sibirbear.arraysAsSets.*;
 
 class arraysAsSetsTest {
 

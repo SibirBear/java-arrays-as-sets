@@ -1,4 +1,4 @@
-package main;
+package sibirbear;
 
 import java.util.Arrays;
 import java.util.HashSet;
